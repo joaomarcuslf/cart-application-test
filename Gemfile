@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.4.1"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -38,7 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails', '~> 4.8'
-  gem 'cucumber-rails', '~> 1.5', :require => false
+  gem 'cucumber-rails', '~> 1.5', require: false
 end
 
 
