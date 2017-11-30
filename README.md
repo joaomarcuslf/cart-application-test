@@ -1,24 +1,36 @@
-# README
+# RailGirls app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+```sh
+bundle
+rails db:migrate
+rails db:seed
+rails server
+```
 
-Things you may want to cover:
+## Development Commands
 
-* Ruby version
+### Show Routes
+```sh
+rails routes
+```
 
-* System dependencies
+### Show Console
+```sh
+rails console
+```
 
-* Configuration
+### Show DB Console
+```sh
+rails dbconsole
+```
 
-* Database creation
+# Additional Infos
 
-* Database initialization
+**Ruby Version**: 2.4.1
+**Rails Version**: 5.1.0
 
-* How to run the test suite
+## System dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Rbenv
+- Node
