@@ -12,4 +12,18 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery3
+//= require jquery_ujs
 //= require_tree .
+
+var ready = function() {
+  $(".nav-toggle").click(function() {
+    var $el = $(this);
+    var $target = $(`#${$el.data().target}`);
+
+    $el.toggleClass("is-active");
+    $target.toggleClass("is-active");
+  });
+}
+
+$(document).on('turbolinks:load', ready);

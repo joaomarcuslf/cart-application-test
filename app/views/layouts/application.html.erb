@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CartApplicationTest</title>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>My Awesome Shop</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +13,49 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar is-dark has-navbar-fixed-top">
+      <div class="navbar-brand">
+        <%=
+          link_to(
+            "MyAwesomeShop",
+            root_path,
+            class: "navbar-item title"
+          )
+        %>
+
+        <div class="navbar-burger burger nav-toggle" data-target="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-start">
+          <%= link_to("Home", home_path, class: "navbar-item") %>
+          <%= link_to("Cart", cart_path, class: "navbar-item") %>
+        </div>
+      </div>
+    </nav>
+
+    <br />
+
+    <div class="hero is-fullwidth">
+      <div class="hero-body">
+        <%= yield %>
+      </div>
+    </div>
+
+    <br />
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    You have <%= cart_size() %> item(s) on your cart
+                </p>
+            </div>
+        </div>
+    </footer>
   </body>
 </html>
