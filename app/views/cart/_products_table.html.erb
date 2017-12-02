@@ -1,0 +1,72 @@
+<% cart_total = 0 %>
+<% purchase_area ||= false %>
+<% update_area ||= false %>
+<% empty_area ||= false %>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name:</th>
+      <th>Unity Price</th>
+      <th>Quantity</th>
+      <th>Total Price:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.each do |product| %>
+        <tr>
+            <th><%= product['name'] %></th>
+            <th> $ <%= product['price'] %></th>
+            <th><%= product['quant'] %></th>
+            <th> $ <%= product['total'] %></th>
+        </tr>
+
+        <% cart_total += product['total'] %>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+        <% if purchase_area %>
+        <th><%=
+            link_to(
+                'Purchase Cart',
+                pre_purchase_path
+            )
+        %></th>
+        <% else %>
+        <th></th>
+        <% end %>
+        <th></th>
+        <th></th>
+        <th> $ <%= cart_total %></th>
+    </tr>
+    <% if update_area %>
+    <tr>
+      <th><%=
+        link_to(
+            'Update Cart',
+            update_path
+        )
+      %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% end %>
+    <% if empty_area %>
+    <tr>
+      <th><%=
+        link_to(
+            'Empty cart',
+            empty_path
+        )
+      %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% end %>
+  </tfoot>
+</table>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/empty', to: 'cart#empty'
   get '/update', to: 'cart#update'
   post '/update', to: 'cart#update_cart'
+  get '/pre_purchase', to: 'cart#pre_purchase'
 
 
   root to: 'catalog#home'

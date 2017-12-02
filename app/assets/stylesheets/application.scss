@@ -44,5 +44,10 @@
     bottom: 0;
     font-weight: bold;
     color: whitesmoke;
-    background: #363636
+    background: #363636;
+
+    a:hover {
+        color: whitesmoke;
+        text-decoration: underline;
+    }
 }
