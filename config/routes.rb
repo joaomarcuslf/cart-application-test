@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      get '/products', to: 'products#index'
-    end
-  end
+  get '/home', to: 'catalog#home'
+  get '/product/:id', to: 'catalog#product'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/cart', to: 'cart#index'
+  get '/empty', to: 'cart#empty'
+  get '/update', to: 'cart#update'
+  post '/update', to: 'cart#update_cart'
+
+
+  root to: 'catalog#home'
 end
