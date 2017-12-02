@@ -1,6 +1,6 @@
 class CartController < ApplicationController
   include CartHelper
-  before_action :get_valid_cart, only: [:index, :update]
+  before_action :get_valid_cart, only: [:index, :update, :update_cart, :pre_purchase]
   before_action :filter_params, only: [:update_cart]
 
   def index
@@ -34,6 +34,9 @@ class CartController < ApplicationController
     session[:cart] = cart
 
     redirect_to cart_path
+  end
+
+  def pre_purchase
   end
 
   def empty

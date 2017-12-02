@@ -6,10 +6,14 @@ module CartHelper
     return products
   end
 
-  def empty_cart!
-    session[:cart] = {
+  def empty_cart
+    return {
       'size' => 0
     }
+  end
+
+  def empty_cart!
+    session[:cart] = empty_cart()
   end
 
   def format_product(product_instance, quant)
@@ -27,6 +31,8 @@ module CartHelper
   def format_cart
     cart = []
     old_cart = session[:cart]
+
+    old_cart ||= empty_cart()
 
     empty_cart!()
 
