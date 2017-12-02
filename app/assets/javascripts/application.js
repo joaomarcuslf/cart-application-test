@@ -19,7 +19,7 @@
 var ready = function() {
   $(".nav-toggle").click(function() {
     var $el = $(this);
-    var $target = $(`#${$el.data().target}`);
+    var $target = $('#' + $el.data().target);
 
     $el.toggleClass("is-active");
     $target.toggleClass("is-active");
