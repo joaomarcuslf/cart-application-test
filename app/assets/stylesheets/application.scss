@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "font-awesome";
+ @import "bulma";
+
+.navbar-menu {
+    &.is-active {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+}
+
+.navbar-brand {
+    .nav-toggle {
+        align-self: center;
+    }
+}
+
+.navbar-item {
+    &.title {
+        margin-bottom: 0;
+    }
+}
+
+.footer {
+    padding: 3rem 1.5rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-weight: bold;
+    color: whitesmoke;
+    background: #363636
+}
