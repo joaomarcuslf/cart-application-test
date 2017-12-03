@@ -41,7 +41,7 @@ module CartHelper
 
         cart.push(formatted_product)
       rescue => e
-        puts e
+        # Product does not exist
       end
     end
 
