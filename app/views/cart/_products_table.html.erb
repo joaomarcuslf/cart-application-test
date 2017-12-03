@@ -1,4 +1,3 @@
-<% cart_total = 0 %>
 <% purchase_area ||= false %>
 <% update_area ||= false %>
 <% empty_area ||= false %>
@@ -17,12 +16,10 @@
     <% @cart.each do |product| %>
         <tr>
             <th><%= product['name'] %></th>
-            <th> $ <%= product['price'] %></th>
+            <th> <%= number_to_currency(product['price']) %></th>
             <th><%= product['quant'] %></th>
-            <th> $ <%= product['total'] %></th>
+            <th> <%= number_to_currency(product['total']) %></th>
         </tr>
-
-        <% cart_total += product['total'] %>
     <% end %>
   </tbody>
 
@@ -40,7 +37,7 @@
         <% end %>
         <th></th>
         <th></th>
-        <th> $ <%= cart_total %></th>
+        <th> <%= number_to_currency(@cart_total) %></th>
     </tr>
     <% if update_area %>
     <tr>

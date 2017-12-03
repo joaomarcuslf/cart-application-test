@@ -24,6 +24,10 @@ var ready = function() {
     $el.toggleClass("is-active");
     $target.toggleClass("is-active");
   });
+
+  $('.delete').click(function() {
+    $('.notification').hide();
+  })
 }
 
 $(document).on('turbolinks:load', ready);

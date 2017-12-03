@@ -14,7 +14,7 @@
             <tr>
                 <input hidden="true" name=<%= "products[#{product['id']}]['id']" %> value=<%= product['id'] %> />
                 <th><%= product['name'] %></th>
-                <th> $ <%= product['price'] %></th>
+                <th> <%= number_to_currency(product['price']) %></th>
                 <th class="field">
                     <div class="control">
                         <input name=<%= "products[#{product['id']}]['quant']" %> type="number" value=<%= product['quant'] %> />
