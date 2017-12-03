@@ -40,7 +40,7 @@ class CatalogController < ApplicationController
 
       old_cart['size']+=1
 
-      old_cart.delete('total')
+      old_cart['total'] = nil
 
       session[:cart] = old_cart
     end

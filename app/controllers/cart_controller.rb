@@ -73,14 +73,13 @@ class CartController < ApplicationController
     end
 
     def get_valid_cart!
-      @cart_total = session[:cart]['total'].to_f
+      @cart_total = session[:cart]['total'].to_f if session[:cart]['total']
 
       @cart = format_cart!()
     end
 
     def check_if_total_changed!
       new_total = 0
-
 
       @cart.each do |product|
         new_total += product['total']
@@ -93,7 +92,8 @@ class CartController < ApplicationController
       end
 
       session[:cart]['total'] = new_total
-      cart_total = new_total
+        
+      @cart_total = new_total
     end
 
     def clear_notification
