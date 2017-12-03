@@ -43,7 +43,7 @@ class CartController < ApplicationController
   def order
     empty_cart!()
 
-    @user = params[:user]
+    @user = params[:username]
   end
 
   def empty
