@@ -1,7 +1,8 @@
 class CartController < ApplicationController
   include CartHelper
-  before_action :get_valid_cart, only: [:index, :update, :update_cart, :pre_purchase]
-  before_action :filter_params, only: [:update_cart]
+  before_action :get_valid_cart, only: [:index, :update, :update_cart, :pre_purchase, :order]
+  before_action :filter_params_products, only: [:update_cart]
+  before_action :filter_params_user, only: [:order]
 
   def index
   end
@@ -39,6 +40,12 @@ class CartController < ApplicationController
   def pre_purchase
   end
 
+  def order
+    empty_cart!()
+
+    @user = params[:user]
+  end
+
   def empty
     empty_cart!()
 
@@ -46,7 +53,11 @@ class CartController < ApplicationController
   end
 
   private
-    def filter_params
+    def filter_params_user
+      params.permit(:username)
+    end
+
+    def filter_params_products
       params.require(:products).permit!
     end
 
