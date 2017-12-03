@@ -9,7 +9,7 @@
                 <%= product.name %>
               </p>
               <p class="subtitle is-6">
-                $ <%= product.price %>
+                <%= number_to_currency(product.price) %>
               </p>
             </div>
           </div>

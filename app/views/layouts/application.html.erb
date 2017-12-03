@@ -38,6 +38,13 @@
       </div>
     </nav>
 
+    <% if flash[:notice] then %>
+        <div class="notification is-info">
+            <button class="delete"></button>
+            <%= flash[:notice] %>
+        </div>
+    <%end%>
+
     <br />
 
     <div class="hero is-fullwidth">
