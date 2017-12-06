@@ -1,4 +1,4 @@
-# RailGirls app
+# cart-application-test
 
 ## Getting Started
 ```sh
